@@ -1,7 +1,7 @@
 CC=gcc
 STDFLAGS=-Wall -Werror -Wextra -std=c11 
-SRC=$(wildcard *.c)
-OBJ=$(patsubst %.c,%.o, ${SRC})
+SRC=$(wildcard src/*.c)
+OBJ=$(patsubst %src/.c,%src/.o, ${SRC})
 
 all: obj ex
 
