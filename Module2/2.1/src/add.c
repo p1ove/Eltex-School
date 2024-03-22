@@ -14,7 +14,7 @@ void add(contact *book, int *pid) {
   printf("Do you want to continue?\n");
   printf("1-YES\n");
   printf("0-NO\n");
-  //scanf("%d", &choice);
+  scanf("%d", &choice);
   if (choice == 1) {
     printf("Write work name\n");
     // scanf("%s", book[*pid].work.name);
