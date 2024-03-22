@@ -14,6 +14,6 @@ void menu(int *option, contact *book, int *person_id) {
   printf("4: Exit\n");
   printf("5: See book\n");
 
-  *option = getchar();
+  scanf("%d", option);
   option_action(*option, book, person_id);
 }
