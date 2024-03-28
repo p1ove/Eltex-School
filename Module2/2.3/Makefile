@@ -9,8 +9,8 @@ obj:
 	$(CC) -c $(STDFLAGS) $(SRC)
 
 ex:
-	$(CC) $(STDFLAGS) $(OBJ) -o book
+	$(CC) $(STDFLAGS) $(OBJ) -o calc
 	rm -rf *.o
 
 clean:
-	rm -rf *.o book
+	rm -rf *.o calc
