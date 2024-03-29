@@ -7,7 +7,7 @@ void mask(){
     char access_o[3];
     int result = 0;
     printf("Введите права доступа в буквенном или цифровом обозначении (например, rwx или 111): ");
-    fgets(access_u,3,stdin);
+    fgets(access_u,4,stdin);
     printf("gdfgsdf%s\n",access_u);
     if (access_u[0]<'8' && access_u[0]>'0'){
         result = number_mask(access_u);
