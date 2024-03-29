@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 void mask(){
     char access_u[3];
@@ -13,7 +14,7 @@ void mask(){
     else{
         fgets(access_g,3,stdin);
         fgets(access_o,3,stdin);
-        char **mass[2]={access_u,access_g,access_o};
+        char *mass[3]={access_u,access_g,access_o};
         result = letter_mask(mass);
     }
   print_bits(result);
