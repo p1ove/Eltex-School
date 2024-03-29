@@ -46,7 +46,7 @@ for(int j = 0; j < 3;j++){
 int letter_mask(char**mass){
     int result = 0;
     for(int j = 0; j < 3; j++){
-        for (int i = 0; i < strlen(mass[j][i]); i++) {
+        for (int i = 0; i < 3; i++) {
         switch (mass[j][i]) {
             case 'r':
                 set_bit(result,3,1); // установить бит для чтения
