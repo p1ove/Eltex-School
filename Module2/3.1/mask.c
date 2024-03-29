@@ -20,7 +20,7 @@ void mask(){
         letter_mask(access_g,&result,3);
         letter_mask(access_o,&result,6);
     }
-  print_bits(result);
+ // print_bits(result);
 }
 
 void print_bits(int a){
