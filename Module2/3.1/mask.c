@@ -10,6 +10,7 @@ void mask(){
     fgets(access_u,3,stdin);
     if (access_u[0]<'7' && access_u[0]>'0'){
         result = number_mask(access_u);
+        printf("%s",access_u);
     }
     else{
         fgets(access_g,3,stdin);
