@@ -14,8 +14,8 @@ void mask(){
         printf("gdfgsdf%s\n",access_u);
     }
     else{
-        fgets(access_g,3,stdin);
-        fgets(access_o,3,stdin);
+        fgets(access_g,4,stdin);
+        fgets(access_o,4,stdin);
         char *mass[3]={access_u,access_g,access_o};
         result = letter_mask(mass);
     }
