@@ -32,6 +32,7 @@ int number_mask(char* mask){
 
   for (int i = 0; i < 3; i++){
     ugo[i] = *(mask+i)-'0';
+    printf("%d\n",ugo[i]);
   }
 
 for(int j = 0; j < 3;j++){
