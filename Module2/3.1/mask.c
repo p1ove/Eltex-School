@@ -9,15 +9,16 @@ void mask(){
     printf("Введите права доступа в буквенном или цифровом обозначении (например, rwx или 111): ");
     fgets(access_u,4,stdin);
     printf("gdfgsdf%s\n",access_u);
-    if (access_u[0]<'8' && access_u[0]>'0'){
+    if (access_u[0]<'8' && access_u[0]>='0'){
         result = number_mask(access_u);
         printf("gdfgsdf%s\n",access_u);
     }
     else{
         fgets(access_g,4,stdin);
         fgets(access_o,4,stdin);
-        char *mass[3]={access_u,access_g,access_o};
-        result = letter_mask(mass);
+        letter_mask(access_u,&result,0);
+        letter_mask(access_g,&result,3);
+        letter_mask(access_o,&result,6);
     }
   print_bits(result);
 }
@@ -46,25 +47,22 @@ for(int j = 0; j < 3;j++){
   return res;
 }
 
-int letter_mask(char**mass){
+int letter_mask(char* u,int* a,int num){
     int result = 0;
-    for(int j = 0; j < 3; j++){
         for (int i = 0; i < 3; i++) {
-        switch (mass[j][i]) {
+        switch (*(u+i)) {
             case 'r':
-                set_bit(result,3,1); // установить бит для чтения
+                set_bit(result,3+num,1); // установить бит для чтения
                 break;
             case 'w':
-                set_bit(result,2,1); // установить бит для записи
+                set_bit(result,2+num,1); // установить бит для записи
                 break;
             case 'x':
-                set_bit(result,1,1); // установить бит для выполнения
+                set_bit(result,1+num,1); // установить бит для выполнения
                 break;
             default:
                 break;
         }
-    }
-    result = result << 3;
     }
     return result;
 }
