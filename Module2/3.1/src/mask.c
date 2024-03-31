@@ -1,6 +1,6 @@
 #include "main.h"
 
-void mask(){
+int mask(){
     char access_u[4];
     char access_g[4];
     char access_o[4];
@@ -25,19 +25,7 @@ void mask(){
     }
  printf("Битовое представление прав доступа:\n");
  print_bits(result);
-}
-
-void print_bits(int a){
-  char* person[3]={"user","group","other"};
-  int n = 0;
-
-  for(int i = 8; i >= 0; i--){
-    printf("%d ",(a>>i)&1);
-    if((i%3) == 0){
-      printf("%s\n",person[n]);
-      n++;
-    }
-  }
+ return result;
 }
 
 int number_mask(char* mask){
@@ -76,19 +64,4 @@ int letter_mask(char* u,int* a,int num){
         }
     }
     return result;
-}
-
-void set_bit(int *number, int pos_bit, short bit) {
-  int bits_32[32] = {0};
-  for (int i = 0; i < 32; i++) {
-    bits_32[i] = 1 << i;
-  }
-  if (bit)
-    *number |= bits_32[pos_bit - 1];
-  else
-    *number &= ~bits_32[pos_bit - 1];
-}
-
-int get_bit(int bit, int pos_bit) {
-  return (bit >> (--pos_bit)) & 1;
 }

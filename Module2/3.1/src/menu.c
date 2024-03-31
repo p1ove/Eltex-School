@@ -1,16 +1,21 @@
 #include "main.h"
 
-void option_action(int opt) {
+void option_action(int opt,int* result) {
 
   switch (opt) {
   case 1:
-    mask();
+    *result = mask();
     break;
   case 2:
-    file_mask();
+    *result = file_mask();
     break;
   case 3:
-    
+    if(*result){
+      change_rights(*result);
+    }
+    else{
+      printf("Сначала укажите файл или права\n");
+    }
     break;
   case 4:
     break;
@@ -19,7 +24,7 @@ void option_action(int opt) {
   }
 }
 
-void menu(int *option) {
+void menu(int *option,int *result) {
   // clear();
   if (*option > 5 || *option < 0) {
     printf("***\n");
@@ -33,5 +38,5 @@ void menu(int *option) {
   printf("4: Выход\n");
 
   scanf("%d",option);
-  option_action(*option);
+  option_action(*option,result);
 }
