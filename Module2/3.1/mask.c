@@ -1,10 +1,5 @@
 #include "main.h"
 
-int main(){
-  mask();
-  return 0;
-}
-
 void mask(){
     char access_u[4];
     char access_g[4];
@@ -12,6 +7,7 @@ void mask(){
     int result = 0;
     printf("Введите права доступа в буквенном обозначении (rwx-) для пользователя,\n");
     printf("Или цифровом обозначении (777) для всех: \n");
+    getchar();//перехват \n из потока после scanf
     fgets(access_u,4,stdin);
     if (access_u[0]<'8' && access_u[0]>='0'){
         result = number_mask(access_u);
