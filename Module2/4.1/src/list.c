@@ -93,6 +93,19 @@ printf("List empty!\n");
 return;
 }
 do {
+    printf("id(%d)%s, %s\n",tmp->id, tmp->name.first_name, tmp->name.last_name);
+    if (*tmp->work.name == 0)
+      continue;
+    else {
+      printf("%s; ", tmp->work.name);
+      printf("%s; ", tmp->work.post);
+      printf("%s; ", tmp->phone_numbers.n1);
+      printf("%s; ", tmp->phone_numbers.n2);
+      printf("%s; ", tmp->email.e1);
+      printf("%s; ", tmp->email.e2);
+      printf("%s; ", tmp->links.l1);
+      printf("%s; \n", tmp->links.l2);
+    }
 printf ("%d ", tmp->id);
 tmp = tmp->next;
 } while (tmp != head);
