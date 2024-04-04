@@ -7,7 +7,7 @@ void option_action(int opt, struct contact *book, int *person_id) {
     add (book, person_id);
     break;
   case 2:
-    delete (book, *person_id);
+    delete (book, *person_id-1);
     add(book, person_id);
     break;
   case 3:
