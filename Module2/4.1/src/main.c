@@ -10,5 +10,6 @@ int main() {
   while (option != 4) {
     menu(&option, book, &person_id);
   }
+  book = DeleteList(book);
   return 0;
 }
