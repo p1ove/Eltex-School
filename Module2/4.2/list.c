@@ -49,7 +49,7 @@ return head;
 }
 
 do {
-if (prior == tmp->priority) {
+if (prior >= tmp->priority) {
 // Если удаляется единственный элемент списка
 if(tmp->next == tmp->prev) {
 *res = tmp->val;
@@ -114,13 +114,14 @@ head = InsertValue(20,1, head);
 
 PrintList(head);
 int delres = 0;
-head = DeleteValue(&delres, head);
+int delprior = 0;
+head = DeleteValue(&delres,0, head);
 PrintList(head); printf("%d\n",delres);
-head = DeleteValue(&delres, head);
+head = DeleteValue(&delres,0, head);
 PrintList(head); printf("%d\n",delres);
-head = DeleteValue(&delres, head);
+head = DeleteValue(&delres,0, head);
 PrintList(head); printf("%d\n",delres);
-head = DeleteValue(&delres, head);
+head = DeleteValue(&delres,0, head);
 PrintList(head); printf("%d\n",delres);
 head = DeleteList(head);
 // PrintList(head);
