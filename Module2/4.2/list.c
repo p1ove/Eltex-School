@@ -39,7 +39,7 @@ return head;
 
 }
 
-struct Item* DeleteValue(int* res, struct Item* head) {
+struct Item* DeleteValue(int* res,int prior, struct Item* head) {
 
 struct Item *tmp = head;
 // Если пытаемся удалить элемент из пустого списка
@@ -48,8 +48,11 @@ printf("List empty!\n");
 return head;
 }
 
+do {
+if (prior == tmp->priority) {
 // Если удаляется единственный элемент списка
 if(tmp->next == tmp->prev) {
+*res = tmp->val;
 free(tmp);
 return NULL;
 }
@@ -57,8 +60,14 @@ return NULL;
 tmp->next->prev = tmp->prev;
 tmp->prev->next = tmp->next;
 // Если элемент удаляется из начала списка, изменяем head
-head = head->next;
-// Записываем значение и удаляем найденный элемент
+if(tmp == head) head = head->next;
+// Удаляем найденный элемент
+*res = tmp->val;
+free(tmp);
+return head;
+}
+tmp = tmp->next;
+} while (tmp != head);
 *res = tmp->val;
 free(tmp);
 return head;

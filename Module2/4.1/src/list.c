@@ -100,7 +100,7 @@ do {
 if(tmp->id){
     printf("id(%d)%s, %s\n",tmp->id, tmp->name.first_name, tmp->name.last_name);
 }
-if (tmp->work.name){
+if (strlen(tmp->work.name)>1){
       printf("%s; ", tmp->work.name);
       printf("%s; ", tmp->work.post);
       printf("%s; ", tmp->phone_numbers.n1);
