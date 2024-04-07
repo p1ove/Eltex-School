@@ -41,7 +41,7 @@ struct Item* item;
 
 if (head == NULL) return NULL;
 
-if (head->priority >= priority) {
+if (head->priority == priority) {
   item = head;
   head = head->next;
   free(item);
@@ -49,7 +49,27 @@ if (head->priority >= priority) {
 }
 
 while (prev->next != NULL) {
-  if (prev->next->priority >= priority) {
+  if (prev->next->priority == priority) {
+  item = prev->next;
+  prev->next = prev->next->next;
+ // prev->next->prev = prev->next;
+  free(item);
+  return head;
+  }
+  else prev = prev->next;
+}
+
+if (head->priority < priority) {
+  item = head;
+  head = head->next;
+  free(item);
+  return head;
+}
+
+prev = head;
+
+while (prev->next != NULL) {
+  if (prev->next->priority < priority) {
   item = prev->next;
   prev->next = prev->next->next;
  // prev->next->prev = prev->next;

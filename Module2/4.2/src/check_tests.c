@@ -53,7 +53,7 @@ START_TEST(test_delete_value_priority) {
     printList(head);
     // Проверка, что все элементы с приоритетом не ниже заданного были удалены
     for (struct Item* item = head; item != NULL; item = item->next) {
-        ck_assert_int_lt(item->priority, delete_priority);
+        ck_assert_int_ge(item->priority, delete_priority);
     }
 
     // Очистка памяти
