@@ -4,7 +4,6 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include <math.h>
 
 // void print(int argc, char** argv){
 //     for (int i = 1; i < argc/2; i++ ){
@@ -23,14 +22,14 @@ int main(int argc, char** argv){
             exit(EXIT_FAILURE);
 
         case 0:
-            for (int i = argc; i > argc/2; i-- ){
-                printf("%lf\n",pow(atoi(argv[i]),2));
+            for (int i = argc/2; i < argc; i--){
+                printf("%d\n", atoi(argv[i])*atoi(argv[i]));
             }            
             exit(EXIT_SUCCESS);
 
         default:
             for (int i = 1; i < argc/2; i++ ){
-                printf("%lf\n",pow(atoi(argv[i]),2));
+                printf("%d\n", atoi(argv[i])*atoi(argv[i]));
             }
             wait(&rv);
     }

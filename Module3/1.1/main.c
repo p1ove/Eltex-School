@@ -20,9 +20,11 @@ int main(int argc, char** argv){
         case -1:
         perror("fork");
         exit(EXIT_FAILURE);
+
         case 0:
         print(argc,argv);
         exit(EXIT_SUCCESS);
+        
         default:
         print(argc,argv);
         wait(&rv);
