@@ -4,12 +4,12 @@ SRCDIR=src/lib_src
 SRC=$(wildcard $(SRCDIR)/*.c)
 OBJ=$(SRC:$(SRCDIR)/%.c=$(SRCDIR)/%.o)
 
-all: clean book.so ex
+all: clean libbook.so ex
 
 ex: $(OBJ) src/main.c
-	$(CC) $(STDFLAGS) src/main.c -L$(PWD) -lbook -o book
+	$(CC) $(STDFLAGS) src/main.c -L. -lbook -o book
 
-book.so: $(OBJ)
+libbook.so: $(OBJ)
 	$(CC) -shared -o $@ $^
 
 clean:
